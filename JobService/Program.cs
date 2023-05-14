@@ -1,14 +1,12 @@
-﻿using JobService.Models;
-using JobService.Tools;
+﻿using JobService.Tools;
 
 RabbitMQClient rabbitMQClient = null;
 try
 {
-    Configs.Load();
     rabbitMQClient = new RabbitMQClient(
-        Configs.Instance.RabbitMQ.Hostname,
-        Configs.Instance.RabbitMQ.Username,
-        Configs.Instance.RabbitMQ.Password
+        EnvironmentVariable.RabbitMQHostname.Value,
+        EnvironmentVariable.RabbitMQUsername.Value,
+        EnvironmentVariable.RabbitMQPassword.Value
     );
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
