@@ -6,7 +6,8 @@ try
     rabbitMQClient = new RabbitMQClient(
         EnvironmentVariable.RabbitMQHostname.Value,
         EnvironmentVariable.RabbitMQUsername.Value,
-        EnvironmentVariable.RabbitMQPassword.Value
+        EnvironmentVariable.RabbitMQPassword.Value,
+        int.Parse(EnvironmentVariable.RabbitMQPrefetchCount.Value)
     );
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();

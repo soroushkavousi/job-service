@@ -24,15 +24,23 @@ public class EnvironmentVariable
         key: "JOB_SERVICE_RABBITMQ_HOSTNAME",
         @default: "localhost"
     );
+
     public static EnvironmentVariable RabbitMQUsername { get; } = new
     (
         key: "JOB_SERVICE_RABBITMQ_USERNAME",
         @default: "guest"
     );
+
     public static EnvironmentVariable RabbitMQPassword { get; } = new
     (
         key: "JOB_SERVICE_RABBITMQ_PASSWORD",
         @default: "guest"
+    );
+
+    public static EnvironmentVariable RabbitMQPrefetchCount { get; } = new
+    (
+        key: "JOB_SERVICE_RABBITMQ_PREFETCH_COUNT",
+        @default: "60"
     );
 
     private bool TryReadValueFromSystem()
