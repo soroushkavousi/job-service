@@ -1,4 +1,5 @@
-﻿using JobService.Tools;
+﻿using JobService.Operators;
+using JobService.Tools;
 
 RabbitMQClient rabbitMQClient = null;
 try
@@ -9,7 +10,8 @@ try
         EnvironmentVariable.RabbitMQPassword.Value,
         int.Parse(EnvironmentVariable.RabbitMQPrefetchCount.Value)
     );
-    Console.WriteLine("Press any key to exit...");
+    var jobOperator = new JobOperator(rabbitMQClient);
+    jobOperator.ExecuteJobsInQueue();
     Console.ReadKey();
 }
 catch (Exception ex)
